@@ -6,6 +6,7 @@ import AddPlant from "../Pages/AddPlant";
 import MyPlants from "../Pages/MyPlants";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
+import MyProfile from "../Pages/MyProfile";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path:"register",
                 Component: Register,
+            },
+            {
+                path : "my-profile",
+                Component: MyProfile
             }
         ]
     }

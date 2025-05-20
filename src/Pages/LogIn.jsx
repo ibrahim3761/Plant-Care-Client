@@ -1,8 +1,46 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { use } from "react";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../Provider/AuthProvider";
+import { Bounce, toast } from "react-toastify";
 
 const Login = () => {
+
+  const {googleLogin} = use(AuthContext)
+  const navigate = useNavigate();
+  const handleGoogleLogin = () =>{
+    googleLogin()
+    .then((result) => {
+        console.log(result);
+        navigate(`${location.state ? location.state : "/"}`);
+        toast.success("Logged in with Google successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(`Google login failed: ${error.message}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      });
+  }
+
   return (
     <div className="flex justify-center items-center rounded-2xl lg:min-h-[500px] bg-green-50 p-4">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
@@ -29,7 +67,7 @@ const Login = () => {
           </button>
 
           <div className="mt-4">
-            <button
+            <button onClick={handleGoogleLogin}
               type="button"
               className="w-full border border-gray-300 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-50"
             >

@@ -1,6 +1,6 @@
-import React from 'react';
-import Banner from '../Componenets/Banner';
-import { Link } from 'react-router';
+import React from "react";
+import Banner from "../Componenets/Banner";
+import { Link } from "react-router";
 
 const Home = () => {
   return (
@@ -8,9 +8,11 @@ const Home = () => {
       {/* 🔼 Banner */}
       <Banner />
 
-      {/* 🌿 New Plants Section (Dynamic - you will fetch data) */}
+      {/* 🌿 New Plants Section */}
       <section className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-extrabold text-green-700 mb-3">🌿 Discover New Plants</h2>
+        <h2 className="text-4xl font-extrabold text-green-700 mb-3">
+          🌿 Discover New Plants
+        </h2>
         <p className="text-lg text-gray-600 mb-10">
           Explore the latest additions and care for your leafy friends.
         </p>
@@ -21,44 +23,101 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ❗ Top Plant Care Mistakes */}
-      <section className="bg-gradient-to-r from-red-50 to-orange-50 py-16 px-4">
-        <div className="max-w-5xl mx-auto text-center space-y-6">
-          <h2 className="text-4xl font-bold text-red-700">🚫 Common Plant Care Mistakes</h2>
-          <p className="text-gray-700 text-lg">
-            Avoid these frequent errors to keep your plants healthy and happy.
+      {/* 🌱 Plant Parent Reflections */}
+      <section className="bg-green-50 py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-10">
+          <h2 className="text-4xl font-bold text-green-700">
+            🌱 Plant Parent Reflections
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Nurturing plants is more than just a hobby — it's a reminder to slow
+            down, observe, and grow alongside them.
           </p>
-          <ul className="list-disc list-inside text-left max-w-xl mx-auto text-gray-800 text-base leading-7">
-            <li>Overwatering or underwatering your plants</li>
-            <li>Poor lighting or inconsistent sun exposure</li>
-            <li>Wrong pot size or missing drainage holes</li>
-            <li>Delaying treatment for pests or fungus</li>
-            <li>Skipping seasonal repotting and fertilizing</li>
-          </ul>
+          <div className="grid gap-6 sm:grid-cols-2 text-left text-gray-700">
+            <blockquote className="border-l-4 border-green-500 pl-4 italic">
+              "A plant is not just a decoration. It’s a living companion that
+              rewards patience with beauty."
+            </blockquote>
+            <blockquote className="border-l-4 border-green-500 pl-4 italic">
+              "Taking care of plants teaches us consistency, empathy, and the
+              joy of small wins."
+            </blockquote>
+            <blockquote className="border-l-4 border-green-500 pl-4 italic">
+              "The more attention you give, the more you notice — and that’s
+              where growth begins."
+            </blockquote>
+            <blockquote className="border-l-4 border-green-500 pl-4 italic">
+              "You’re not just watering leaves, you’re cultivating life."
+            </blockquote>
+          </div>
         </div>
       </section>
 
-      {/* 🌼 Beginner-Friendly Plants */}
-      <section className="py-16 px-4 bg-green-50">
-        <div className="max-w-6xl mx-auto text-center space-y-10">
-          <h2 className="text-4xl font-bold text-green-700">🪴 Best Plants for Beginners</h2>
-          <p className="text-gray-700 text-lg">
-            New to plants? Start with these easy-care options that thrive with minimal effort.
+      {/* 🧪 Quick Plant Troubleshooting Guide */}
+      <section className="py-16 px-4 bg-white border-t border-green-100">
+        <div className="max-w-5xl mx-auto text-center space-y-8">
+          <h2 className="text-4xl font-bold text-green-700">
+            🧪 Quick Plant Troubleshooting
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Not sure why your plant looks sad? Here are some common visual
+            symptoms and what they often mean:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: 'Spider Plant', desc: 'Low light tolerant and air-purifying' },
-              { name: 'Pothos', desc: 'Grows fast and survives missed waterings' },
-              { name: 'Snake Plant', desc: 'Hard to kill, perfect for beginners' },
-            ].map((plant, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl shadow-lg p-6 text-left hover:shadow-xl transition"
-              >
-                <h3 className="text-xl font-semibold text-green-600">{plant.name}</h3>
-                <p className="text-gray-700 mt-2">{plant.desc}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            <div className="bg-green-50 p-5 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-green-800 mb-2">
+                🟡 Yellow Leaves
+              </h3>
+              <p className="text-gray-700">
+                Likely caused by overwatering or poor drainage. Let the soil dry
+                out more between waterings.
+              </p>
+            </div>
+            <div className="bg-green-50 p-5 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-green-800 mb-2">
+                🍂 Browning Tips
+              </h3>
+              <p className="text-gray-700">
+                Usually due to low humidity or inconsistent watering. Mist
+                lightly or use a humidity tray.
+              </p>
+            </div>
+            <div className="bg-green-50 p-5 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-green-800 mb-2">
+                🪰 Tiny Flying Bugs
+              </h3>
+              <p className="text-gray-700">
+                These are fungus gnats. Let soil dry completely and try neem oil
+                or sticky traps.
+              </p>
+            </div>
+            <div className="bg-green-50 p-5 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-green-800 mb-2">
+                🌱 Droopy Leaves
+              </h3>
+              <p className="text-gray-700">
+                Can be underwatering or sudden environmental change. Check soil
+                moisture and light conditions.
+              </p>
+            </div>
+            <div className="bg-green-50 p-5 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-green-800 mb-2">
+                🌑 No Growth
+              </h3>
+              <p className="text-gray-700">
+                Low light or nutrient deficiency. Try moving it closer to a
+                window or repotting with fresh soil.
+              </p>
+            </div>
+            <div className="bg-green-50 p-5 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-green-800 mb-2">
+                🧊 Curling Leaves
+              </h3>
+              <p className="text-gray-700">
+                Often a sign of too much direct sun or sudden cold exposure.
+                Move to filtered light and stable temps.
+              </p>
+            </div>
           </div>
         </div>
       </section>
