@@ -8,8 +8,82 @@ import { FaEye } from "react-icons/fa";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { googleLogin } = use(AuthContext);
+  const { googleLogin,createUser,setUser,updateUser } = use(AuthContext);
   const navigate = useNavigate();
+
+  const handleRegister = (e) =>{
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photo = e.target.photo.value;
+    const password = e.target.password.value;
+     //  Password validation
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error("Password must be at least 6 characters, include uppercase, lowercase, and a number.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
+
+     createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            navigate(`${location.state ? location.state : "/"}`);
+            toast.success("User registered successfully!", {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+          })
+          .catch((error) => {
+            setUser(user);
+            toast.error(`Profile update failed: ${error.message}`, {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+            navigate(`${location.state ? location.state : "/"}`);
+          });
+      })
+      .catch((error) => {
+        toast.error(`Registration failed: ${error.message}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      });
+  }
+
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -50,22 +124,25 @@ const Register = () => {
         <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
           Register
         </h2>
-        <form className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4">
           <input
             type="text"
             placeholder="Full Name"
+            name="name"
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           <input
             type="email"
             placeholder="Email"
+            name="email"
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           <input
             type="text"
             placeholder="Photo URL"
+            name="photo"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           <div className="relative">
@@ -73,8 +150,8 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               required
-              pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
-              title="Must contain uppercase, lowercase letters, and at least 6 characters"
+              name="password"
+              
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 pr-10"
             />
             <button
