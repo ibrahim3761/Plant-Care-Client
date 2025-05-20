@@ -13,8 +13,17 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
+    autoplaySpeed: 6000,
+    pauseOnHover: false,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false
+        }
+      }
+    ]
   };
 
   const slides = [
@@ -22,39 +31,108 @@ const Banner = () => {
       title: "Water Wisely",
       text: "Overwatering is the #1 killer of houseplants. Let the soil dry before the next watering.",
       animation: tipAnimation,
+      tipNumber: "Tip #1",
+      extraInfo: "Most indoor plants need water only when the top 1-2 inches of soil feels dry to the touch.",
+      bulletPoints: [
+        "Check soil moisture with your finger before watering",
+        "Water less frequently in winter months",
+        "Use room temperature water to avoid shocking roots"
+      ],
+      factoid: "Did you know? Plants in plastic pots retain moisture longer than those in terracotta pots.",
+    
     },
     {
       title: "Know Your Varieties",
       text: "Succulents, ferns, herbs — each plant type has unique needs. Know what you grow!",
       animation: varietyAnimation,
+      tipNumber: "Tip #2",
+      extraInfo: "Research your specific plant species for best results. Our plant database has care info for over 500 varieties.",
+      bulletPoints: [
+        "Succulents need bright light and minimal water",
+        "Ferns prefer humidity and indirect light",
+        "Tropical plants usually need warmth and moisture"
+      ],
+      factoid: "Fun fact: The ZZ Plant can survive for months without water and thrives in low light conditions.",
     },
     {
       title: "Sunlight is Essential",
       text: "Place your plants near windows with indirect light. Rotate them weekly for even growth.",
       animation: sunlightAnimation,
-    },
+      tipNumber: "Tip #3",
+      extraInfo: "South-facing windows provide the most light, while north-facing windows offer gentle, indirect light perfect for shade-loving plants.",
+      bulletPoints: [
+        "East-facing windows provide morning sun, ideal for most plants",
+        "West-facing windows offer afternoon sun, which can be intense",
+        "Use sheer curtains to filter harsh direct sunlight"
+      ],
+      factoid: "Plant fact: Variegated plants typically need more light than their solid-green counterparts to maintain their patterns.",
+    }
   ];
 
   return (
-  <div className="bg-green-100 py-10 px-4">
-    <Slider {...settings}>
-      {slides.map((slide, index) => (
-        <div key={index}>
-          <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4">
-            <div className="lg:w-1/2 text-center lg:text-left space-y-4">
-              <h2 className="text-3xl font-bold text-green-700">{slide.title}</h2>
-              <p className="text-gray-700">{slide.text}</p>
-              <button className="btn bg-green-500 text-white">Learn More</button>
-            </div>
-            <div className="lg:w-1/2 flex justify-center">
-              <Lottie animationData={slide.animation} style={{ height: 300 }} loop />
+    <div className="bg-gradient-to-r from-green-50 to-green-100 py-10 px-4 rounded-xl shadow-md">
+      <div className="max-w-6xl mx-auto mb-6">
+        <h1 className="text-4xl font-bold text-green-800 text-center mb-2">Essential Plant Care Tips</h1>
+        <p className="text-gray-600 text-center max-w-2xl mx-auto">Master these fundamentals to keep your plants healthy and thriving</p>
+      </div>
+      
+      <Slider {...settings} className="plant-care-slider">
+        {slides.map((slide, index) => (
+          <div key={index}>
+            <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 py-6">
+              <div className="lg:w-1/2 text-center lg:text-left space-y-4">
+                <span className="inline-block bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">{slide.tipNumber}</span>
+                <h2 className="text-3xl font-bold text-green-700">{slide.title}</h2>
+                <p className="text-gray-700 text-lg">{slide.text}</p>
+                <p className="text-gray-600">{slide.extraInfo}</p>
+                
+                <div className="bg-white bg-opacity-70 rounded-lg p-4 mt-4">
+                  <h3 className="font-semibold text-green-800 mb-2">Key Points:</h3>
+                  <ul className="space-y-2">
+                    {slide.bulletPoints.map((point, i) => (
+                      <li key={i} className="flex items-start">
+                        <svg className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-3 bg-green-50 p-3 rounded-md border-l-4 border-green-500">
+                    <p className="text-sm italic text-gray-700">{slide.factoid}</p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 pt-2"> 
+                  <button className="btn bg-white hover:bg-gray-100 text-green-700 border border-green-600 font-medium px-6 py-2 rounded-lg transition-colors">
+                    Save Tip
+                  </button>
+                </div>
+              </div>
+              
+              <div className="lg:w-1/2 flex justify-center relative">
+                <div className="absolute top-0 right-0 bg-white p-2 rounded-full shadow-md hidden lg:block">
+                  <span className="text-xs font-medium text-green-800">Tip {index + 1}/{slides.length}</span>
+                </div>
+                <div className="relative">
+                  <Lottie animationData={slide.animation} style={{ height: 300 }} loop />
+                </div>
+              </div>
             </div>
           </div>
+        ))}
+      </Slider>
+
+      <div className="mt-6 flex justify-center">
+        <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-green-100">
+          <p className="text-center text-gray-600">
+            <span className="font-semibold text-green-700">Pro Tip:</span> Join our weekly newsletter for seasonal plant care advice and tips
+            <a href="/newsletter" className="ml-2 text-green-600 hover:text-green-800 underline">Subscribe now</a>
+          </p>
         </div>
-      ))}
-    </Slider>
-  </div>
-);
+      </div>
+    </div>
+  );
 };
 
 export default Banner;
