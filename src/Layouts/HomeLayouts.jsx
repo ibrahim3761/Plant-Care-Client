@@ -9,7 +9,7 @@ const HomeLayouts = () => {
             <header>
                 <Header></Header>
             </header>
-            <main>
+            <main className='px-10 py-10'>
                 <Outlet></Outlet>
             </main>
             <footer>
