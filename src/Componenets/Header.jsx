@@ -20,7 +20,7 @@ const Navbar = () => {
       </li>
       <li className="lg:mr-4">
         <NavLink
-          to="/plants"
+          to="/allPlants"
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
