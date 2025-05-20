@@ -86,20 +86,27 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
           >
             {navLinks}
-            {!user && (
+            {!user ? (
               <>
                 <div className="divider my-2 sm:hidden"></div>
                 <li className="sm:hidden">
-                  <Link to="/logIn" className="text-gray-700 hover:text-green-500 pb-1">
+                  <Link to="/logIn" className="btn bg-green-500 hover:bg-green-600 text-white">
                     Log In
                   </Link>
                 </li>
                 <li className="sm:hidden">
-                  <Link to="/register" className="text-gray-700 hover:text-green-500 pb-1">
+                  <Link to="/register" className="btn bg-green-500 hover:bg-green-600 text-white">
                     Register
                   </Link>
                 </li>
               </>
+            ):(
+               <li
+              onClick={handleLogOut}
+              className="sm:hidden btn bg-green-500 hover:bg-green-600 text-white"
+            >
+              Log Out
+            </li>
             )}
           </ul>
         </div>
