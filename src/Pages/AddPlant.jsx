@@ -33,6 +33,7 @@ const AddPlant = () => {
           theme: "light",
           transition: Bounce,
           });
+          form.reset();
       }
     })
   }
