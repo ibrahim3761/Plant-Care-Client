@@ -36,7 +36,7 @@ const AllPlants = () => {
                 <td className="px-6 py-4">{plant.wateringFrequency}</td>
                 <td className="px-6 py-4">
                   <Link
-                    to={`/plants/${plant.id}`}
+                    to={`/plantDetails/${plant._id}`}
                     className="inline-block bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition"
                   >
                     View Details
