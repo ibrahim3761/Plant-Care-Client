@@ -1,14 +1,46 @@
 import React from "react";
 import { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Bounce, toast } from "react-toastify";
 
 const AddPlant = () => {
   const { user } = use(AuthContext);
 
+  const handleAddPlant = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const newPlant = Object.fromEntries(new FormData(form));
+    console.log(newPlant);
+    // add to db
+    fetch("http://localhost:3000/plants",{
+      method: "POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body: JSON.stringify(newPlant)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.insertedId){
+        toast.success('Plant added Successfully', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+      }
+    })
+  }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 bg-green-50 rounded-xl shadow-md">
       <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Add New Plant</h2>
-      <form className="space-y-5">
+      <form onSubmit={handleAddPlant} className="space-y-5">
 
         <div>
           <label htmlFor="image" className="block text-gray-700 font-medium mb-1">Image URL</label>

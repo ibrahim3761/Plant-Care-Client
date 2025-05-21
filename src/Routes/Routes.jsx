@@ -7,6 +7,7 @@ import MyPlants from "../Pages/MyPlants";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import MyProfile from "../Pages/MyProfile";
+import PlantDetails from "../Pages/PlantDetails";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
             {
                 path:"allPlants",
                 Component:AllPlants,
+                loader: ()=> fetch('http://localhost:3000/plants')
             },
             {
                 path: "add-plant",
@@ -41,6 +43,11 @@ export const router = createBrowserRouter([
             {
                 path : "my-profile",
                 Component: MyProfile
+            },
+            {
+                path:"plantDetails/:id",
+                Component: PlantDetails,
+                loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`)            
             }
         ]
     }
