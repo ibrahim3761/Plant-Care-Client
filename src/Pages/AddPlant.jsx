@@ -6,187 +6,187 @@ import { Bounce, toast } from "react-toastify";
 const AddPlant = () => {
   const { user } = use(AuthContext);
 
-  const handleAddPlant = (e) =>{
+  const handleAddPlant = (e) => {
     e.preventDefault();
     const form = e.target;
     const newPlant = Object.fromEntries(new FormData(form));
     console.log(newPlant);
-    // add to db
-    fetch("http://localhost:3000/plants",{
+
+    fetch("http://localhost:3000/plants", {
       method: "POST",
-      headers:{
-        "content-type":"application/json"
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(newPlant)
+      body: JSON.stringify(newPlant),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.insertedId){
-        toast.success('Plant added Successfully', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Plant added successfully!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+            transition: Bounce,
           });
           form.reset();
-      }
-    })
-  }
+        }
+      });
+  };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10 bg-green-50 rounded-xl shadow-md">
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Add New Plant</h2>
-      <form onSubmit={handleAddPlant} className="space-y-5">
+    <div className="w-full px-4 py-10">
+      <div className="bg-[#F4F3F0] p-10 rounded-xl shadow-md">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-[#374151] mb-4">
+          Add a New Plant
+        </h2>
+        <p className="text-center text-sm md:text-base text-gray-600 mb-8">
+          Fill out the form below to register a new plant in your collection.
+        </p>
 
-        <div>
-          <label htmlFor="image" className="block text-gray-700 font-medium mb-1">Image URL</label>
-          <input
-            type="text"
-            name="image"
-            id="image"
-            placeholder="Image URL"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Plant Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Plant Name"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="category" className="block text-gray-700 font-medium mb-1">Category</label>
-          <select
-            name="category"
-            id="category"
-            required
-            className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
-          >
-            <option value="">Select Category</option>
-            <option value="succulent">Succulent</option>
-            <option value="fern">Fern</option>
-            <option value="flowering">Flowering</option>
-            <option value="tropical">Tropical</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="description" className="block text-gray-700 font-medium mb-1">Description</label>
-          <textarea
-            name="description"
-            id="description"
-            placeholder="Description"
-            required
-            rows="4"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          ></textarea>
-        </div>
-
-        <div>
-          <label htmlFor="careLevel" className="block text-gray-700 font-medium mb-1">Care Level</label>
-          <select
-            name="careLevel"
-            id="careLevel"
-            required
-            className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
-          >
-            <option value="">Select Care Level</option>
-            <option value="easy">Easy</option>
-            <option value="moderate">Moderate</option>
-            <option value="difficult">Difficult</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="wateringFrequency" className="block text-gray-700 font-medium mb-1">Watering Frequency</label>
-          <input
-            type="text"
-            name="wateringFrequency"
-            id="wateringFrequency"
-            placeholder="e.g., every 3 days"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="lastWatered" className="block text-gray-700 font-medium mb-1">Last Watered Date</label>
-          <input
-            type="date"
-            name="lastWatered"
-            id="lastWatered"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="nextWatering" className="block text-gray-700 font-medium mb-1">Next Watering Date</label>
-          <input
-            type="date"
-            name="nextWatering"
-            id="nextWatering"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="healthStatus" className="block text-gray-700 font-medium mb-1">Health Status</label>
-          <input
-            type="text"
-            name="healthStatus"
-            id="healthStatus"
-            placeholder="Health Status"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="userEmail" className="block text-gray-700 font-medium mb-1">User Email</label>
-          <input
-            type="text"
-            name="userEmail"
-            id="userEmail"
-            value={user?.email || ""}
-            readOnly
-            className="w-full px-4 py-2 border bg-gray-100 rounded-lg text-gray-600"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="userName" className="block text-gray-700 font-medium mb-1">User Name</label>
-          <input
-            type="text"
-            name="userName"
-            id="userName"
-            value={user?.displayName || ""}
-            readOnly
-            className="w-full px-4 py-2 border bg-gray-100 rounded-lg text-gray-600"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-green-600 text-white font-medium py-2 rounded-lg hover:bg-green-700 transition"
+        <form
+          onSubmit={handleAddPlant}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
         >
-          Add Plant
-        </button>
-      </form>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Image URL</label>
+            <input
+              type="text"
+              name="image"
+              placeholder="Image URL"
+              required
+              className="p-2 rounded border"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Plant Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Plant Name"
+              required
+              className="p-2 rounded border"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Category</label>
+            <select
+              name="category"
+              required
+              className="p-2 rounded border text-gray-700"
+            >
+              <option value="">Select Category</option>
+              <option value="succulent">Succulent</option>
+              <option value="fern">Fern</option>
+              <option value="flowering">Flowering</option>
+              <option value="tropical">Tropical</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Care Level</label>
+            <select
+              name="careLevel"
+              required
+              className="p-2 rounded border text-gray-700"
+            >
+              <option value="">Select Care Level</option>
+              <option value="easy">Easy</option>
+              <option value="moderate">Moderate</option>
+              <option value="difficult">Difficult</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Watering Frequency</label>
+            <input
+              type="text"
+              name="wateringFrequency"
+              placeholder="e.g., every 3 days"
+              required
+              className="p-2 rounded border"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Health Status</label>
+            <input
+              type="text"
+              name="healthStatus"
+              placeholder="Health Status"
+              required
+              className="p-2 rounded border"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Last Watered Date</label>
+            <input
+              type="date"
+              name="lastWatered"
+              required
+              className="p-2 rounded border"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Next Watering Date</label>
+            <input
+              type="date"
+              name="nextWatering"
+              required
+              className="p-2 rounded border"
+            />
+          </div>
+
+          <div className="md:col-span-2 flex flex-col">
+            <label className="font-semibold mb-1">Description</label>
+            <textarea
+              name="description"
+              placeholder="Write a short description..."
+              required
+              rows="3"
+              className="p-2 rounded border"
+            ></textarea>
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">User Email</label>
+            <input
+              type="text"
+              name="userEmail"
+              value={user?.email || ""}
+              readOnly
+              className="p-2 rounded border bg-gray-100 text-gray-600"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">User Name</label>
+            <input
+              type="text"
+              name="userName"
+              value={user?.displayName || ""}
+              readOnly
+              className="p-2 rounded border bg-gray-100 text-gray-600"
+            />
+          </div>
+
+          <div className="md:col-span-2 text-center mt-4">
+            <button
+              type="submit"
+              className="bg-[#D2B48C] hover:bg-[#b6976c] text-white font-bold py-2 px-6 rounded transition"
+            >
+              Add Plant
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

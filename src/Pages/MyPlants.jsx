@@ -64,7 +64,7 @@ const MyPlants = () => {
                 <td className="px-6 py-4">{plant.wateringFrequency}</td>
                 <td className="px-6 py-4 space-x-2">
                   <Link
-                    to={`/updatePlant/${plant._id}`}
+                    to={`/update-plant/${plant._id}`}
                     className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
                   >
                     Update
