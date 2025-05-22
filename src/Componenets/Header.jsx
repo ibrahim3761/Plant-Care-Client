@@ -21,7 +21,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-400 hover:text-green-500 pb-1"
+              : "text-gray-700 hover:text-green-500 pb-1"
           }
         >
           Home
@@ -33,7 +33,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-400 hover:text-green-500 pb-1"
+              : "text-gray-700 hover:text-green-500 pb-1"
           }
         >
           All Plants
@@ -45,7 +45,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-400 hover:text-green-500 pb-1"
+              : "text-gray-700 hover:text-green-500 pb-1"
           }
         >
           Add Plant
@@ -57,7 +57,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
-              : "text-gray-400 hover:text-green-500 pb-1"
+              : "text-gray-700 hover:text-green-500 pb-1"
           }
         >
           My Plants

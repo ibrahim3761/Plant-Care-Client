@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -6,9 +7,11 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <h2 className="text-xl font-bold mb-1">Plant Care</h2>
-          <p className="text-sm">
+          <Link to='/copyright'>
+            <p className="text-sm underline">
             &copy; {new Date().getFullYear()} PlantCare. All rights reserved.
           </p>
+          </Link>
         </div>
 
         <div className="text-center md:text-left">

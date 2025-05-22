@@ -12,6 +12,9 @@ import UpdatePlant from "../Pages/UpdatePlant";
 import Loader from "../Pages/Loader";
 import PrivateRoute from "../Provider/PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
+import CopyrightPage from "../Pages/CopyrightPage";
+import TermsPage from "../Pages/TermsPage";
+import PrivacyPage from "../Pages/PrivacyPage";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +79,18 @@ export const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://plant-care-tracker-server-ten.vercel.app/plants/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
       },
+      {
+        path:"copyright",
+        Component: CopyrightPage
+      },
+      {
+        path:"terms",
+        Component: TermsPage
+      },
+      {
+        path:"privacy",
+        Component: PrivacyPage 
+      }
     ],
   },
 ]);
