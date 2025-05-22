@@ -5,11 +5,11 @@ import Footer from '../Componenets/Footer';
 
 const HomeLayouts = () => {
     return (
-        <div>
+        <div className='min-h-screen flex flex-col'>
             <header>
                 <Header></Header>
             </header>
-            <main className='md:px-10 md:py-10 px-5 py-5'>
+            <main className='flex-grow md:px-10 md:py-14 px-5 py-5'>
                 <Outlet></Outlet>
             </main>
             <footer>

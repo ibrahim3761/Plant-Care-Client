@@ -9,6 +9,8 @@ import Register from "../Pages/Register";
 import MyProfile from "../Pages/MyProfile";
 import PlantDetails from "../Pages/PlantDetails";
 import UpdatePlant from "../Pages/UpdatePlant";
+import Loader from "../Pages/Loader";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,7 @@ export const router = createBrowserRouter([
         path: "allPlants",
         Component: AllPlants,
         loader: () => fetch("http://localhost:3000/plants?sortBy=nextWatering"),
+        hydrateFallbackElement: <Loader></Loader>
       },
       {
         path: "add-plant",
@@ -31,12 +34,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-plants",
-        Component: MyPlants,
+        element: (<PrivateRoute>
+          <MyPlants></MyPlants>
+        </PrivateRoute>),
+        hydrateFallbackElement: <Loader></Loader>
       },
       {
         path: "update-plant/:id",
         Component: UpdatePlant,
-        loader:({params})=> fetch(`http://localhost:3000/plants/${params.id}`)
+        loader:({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>
       },
       {
         path: "logIn",
@@ -53,8 +60,8 @@ export const router = createBrowserRouter([
       {
         path: "plantDetails/:id",
         Component: PlantDetails,
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/plants/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/plants/${params.id}`),
+        hydrateFallbackElement: Loader
       },
     ],
   },
