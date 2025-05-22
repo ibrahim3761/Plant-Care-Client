@@ -108,7 +108,7 @@ const Banner = () => {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>{point}</span>
+                        <span className="text-gray-400">{point}</span>
                       </li>
                     ))}
                   </ul>

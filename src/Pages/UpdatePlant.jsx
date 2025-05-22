@@ -22,7 +22,7 @@ const UpdatePlant = () => {
     const form = e.target;
     const updatedPlant = Object.fromEntries(new FormData(form));
 
-    fetch(`http://localhost:3000/plants/${_id}`, {
+    fetch(`https://plant-care-tracker-server-ten.vercel.app/plants/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -177,7 +177,7 @@ const UpdatePlant = () => {
           <div className="md:col-span-2 text-center mt-4">
             <button
               type="submit"
-              className="bg-[#4CAF50] hover:bg-[#3c9742] text-white font-bold py-2 px-6 rounded transition"
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded transition cursor-pointer"
             >
               Update Plant
             </button>

@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       {
         path: "allPlants",
         Component: AllPlants,
-        loader: () => fetch("http://localhost:3000/plants?sortBy=nextWatering"),
+        loader: () => fetch("https://plant-care-tracker-server-ten.vercel.app/plants?sortBy=nextWatering"),
         hydrateFallbackElement: <Loader></Loader>
       },
       {
@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
       {
         path: "update-plant/:id",
         Component: UpdatePlant,
-        loader:({params})=> fetch(`http://localhost:3000/plants/${params.id}`),
+        loader:({params})=> fetch(`https://plant-care-tracker-server-ten.vercel.app/plants/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
       },
       {
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             <PlantDetails></PlantDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/plants/${params.id}`),
+        loader: ({ params }) => fetch(`https://plant-care-tracker-server-ten.vercel.app/plants/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>
       },
     ],
