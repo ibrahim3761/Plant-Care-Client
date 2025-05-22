@@ -39,11 +39,11 @@ const AddPlant = () => {
 
   return (
     <div className="w-full px-4 py-10">
-      <div className="bg-[#F4F3F0] p-10 rounded-xl shadow-md">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-[#374151] mb-4">
+      <div className="bg-[#f9f9f6] dark:bg-gray-900 p-10 rounded-xl shadow-md text-gray-800 dark:text-gray-200">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-green-800 dark:text-green-300 mb-4">
           Add a New Plant
         </h2>
-        <p className="text-center text-sm md:text-base text-gray-600 mb-8">
+        <p className="text-center text-sm md:text-base text-gray-600 dark:text-gray-400 mb-8">
           Fill out the form below to register a new plant in your collection.
         </p>
 
@@ -51,6 +51,7 @@ const AddPlant = () => {
           onSubmit={handleAddPlant}
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
         >
+          {/* Image URL */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Image URL</label>
             <input
@@ -58,10 +59,11 @@ const AddPlant = () => {
               name="image"
               placeholder="Image URL"
               required
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             />
           </div>
 
+          {/* Plant Name */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Plant Name</label>
             <input
@@ -69,16 +71,17 @@ const AddPlant = () => {
               name="name"
               placeholder="Plant Name"
               required
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             />
           </div>
 
+          {/* Category */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Category</label>
             <select
               name="category"
               required
-              className="p-2 rounded border text-gray-700"
+              className="p-2 rounded border text-gray-700 dark:bg-gray-800 dark:text-white"
             >
               <option value="">Select Category</option>
               <option value="succulent">Succulent</option>
@@ -88,12 +91,13 @@ const AddPlant = () => {
             </select>
           </div>
 
+          {/* Care Level */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Care Level</label>
             <select
               name="careLevel"
               required
-              className="p-2 rounded border text-gray-700"
+              className="p-2 rounded border text-gray-700 dark:bg-gray-800 dark:text-white"
             >
               <option value="">Select Care Level</option>
               <option value="easy">Easy</option>
@@ -102,6 +106,7 @@ const AddPlant = () => {
             </select>
           </div>
 
+          {/* Watering Frequency */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Watering Frequency</label>
             <input
@@ -109,10 +114,11 @@ const AddPlant = () => {
               name="wateringFrequency"
               placeholder="e.g., every 3 days"
               required
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             />
           </div>
 
+          {/* Health Status */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Health Status</label>
             <input
@@ -120,30 +126,33 @@ const AddPlant = () => {
               name="healthStatus"
               placeholder="Health Status"
               required
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             />
           </div>
 
+          {/* Last Watered Date */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Last Watered Date</label>
             <input
               type="date"
               name="lastWatered"
               required
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             />
           </div>
 
+          {/* Next Watering Date */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Next Watering Date</label>
             <input
               type="date"
               name="nextWatering"
               required
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             />
           </div>
 
+          {/* Description */}
           <div className="md:col-span-2 flex flex-col">
             <label className="font-semibold mb-1">Description</label>
             <textarea
@@ -151,10 +160,11 @@ const AddPlant = () => {
               placeholder="Write a short description..."
               required
               rows="3"
-              className="p-2 rounded border"
+              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
             ></textarea>
           </div>
 
+          {/* User Email */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">User Email</label>
             <input
@@ -162,10 +172,11 @@ const AddPlant = () => {
               name="userEmail"
               value={user?.email || ""}
               readOnly
-              className="p-2 rounded border bg-gray-100 text-gray-600"
+              className="p-2 rounded border bg-gray-100 dark:bg-gray-700 dark:text-white"
             />
           </div>
 
+          {/* User Name */}
           <div className="flex flex-col">
             <label className="font-semibold mb-1">User Name</label>
             <input
@@ -173,10 +184,11 @@ const AddPlant = () => {
               name="userName"
               value={user?.displayName || ""}
               readOnly
-              className="p-2 rounded border bg-gray-100 text-gray-600"
+              className="p-2 rounded border bg-gray-100 dark:bg-gray-700 dark:text-white"
             />
           </div>
 
+          {/* Submit Button */}
           <div className="md:col-span-2 text-center mt-4">
             <button
               type="submit"

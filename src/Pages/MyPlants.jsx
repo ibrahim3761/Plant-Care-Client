@@ -9,7 +9,7 @@ const MyPlants = () => {
 
   useEffect(() => {
     if (user?.email) {
-     fetch(`http://localhost:3000/plants/user/${user.email}`)
+      fetch(`http://localhost:3000/plants/user/${user.email}`)
         .then(res => res.json())
         .then(data => setMyPlants(data));
     }
@@ -42,26 +42,32 @@ const MyPlants = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-6">My Plants</h2>
+      <h2 className="text-3xl font-bold text-center text-green-700 dark:text-green-300 mb-6">My Plants</h2>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden">
-          <thead className="bg-green-100">
+        <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md rounded-lg overflow-hidden">
+          <thead className="bg-green-100 dark:bg-green-800">
             <tr>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Image</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Plant Name</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Watering</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700">Actions</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Image</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Name</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Category</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Watering</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Next Watering</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Health</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-700 dark:text-gray-200">Actions</th>
             </tr>
           </thead>
           <tbody>
             {myPlants?.map(plant => (
-              <tr key={plant._id} className="border-t border-gray-200">
+              <tr key={plant._id} className="border-t border-gray-200 dark:border-gray-700">
                 <td className="px-6 py-4">
-                  <img src={plant.image} alt={plant.name} className="w-16 h-16 object-cover rounded" />
+                  <img src={plant.image} alt={plant.name} className="w-16 h-16 object-cover rounded border border-gray-300 dark:border-gray-600" />
                 </td>
-                <td className="px-6 py-4">{plant.name}</td>
-                <td className="px-6 py-4">{plant.wateringFrequency}</td>
+                <td className="px-6 py-4 text-gray-800 dark:text-gray-100">{plant.name}</td>
+                <td className="px-6 py-4 capitalize text-gray-800 dark:text-gray-100">{plant.category}</td>
+                <td className="px-6 py-4 text-gray-800 dark:text-gray-100">{plant.wateringFrequency}</td>
+                <td className="px-6 py-4 text-gray-800 dark:text-gray-100">{plant.nextWatering || 'N/A'}</td>
+                <td className="px-6 py-4 text-gray-800 dark:text-gray-100">{plant.healthStatus || 'Unknown'}</td>
                 <td className="px-6 py-4 space-x-2">
                   <Link
                     to={`/update-plant/${plant._id}`}
@@ -80,7 +86,7 @@ const MyPlants = () => {
             ))}
             {!myPlants?.length && (
               <tr>
-                <td colSpan="4" className="text-center text-gray-500 py-6">
+                <td colSpan="7" className="text-center text-gray-500 dark:text-gray-300 py-6">
                   No plants found.
                 </td>
               </tr>

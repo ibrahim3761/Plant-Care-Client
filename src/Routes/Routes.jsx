@@ -30,7 +30,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "add-plant",
-        Component: AddPlant,
+        element: (<PrivateRoute>
+          <AddPlant></AddPlant>
+        </PrivateRoute>),
+        hydrateFallbackElement: <Loader></Loader>
       },
       {
         path: "my-plants",
@@ -55,13 +58,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-profile",
-        Component: MyProfile,
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        )
       },
       {
         path: "plantDetails/:id",
-        Component: PlantDetails,
+        element: (
+          <PrivateRoute>
+            <PlantDetails></PlantDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => fetch(`http://localhost:3000/plants/${params.id}`),
-        hydrateFallbackElement: Loader
+        hydrateFallbackElement: <Loader></Loader>
       },
     ],
   },

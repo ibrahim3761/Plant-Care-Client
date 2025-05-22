@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Bounce, toast } from "react-toastify";
@@ -8,33 +8,28 @@ import { FaEye } from "react-icons/fa";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { googleLogin,createUser,setUser,updateUser } = use(AuthContext);
+  const { googleLogin, createUser, setUser, updateUser } = use(AuthContext);
   const navigate = useNavigate();
-
-  const handleRegister = (e) =>{
+  const location = useLocation();
+  const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
-     //  Password validation
+
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       toast.error("Password must be at least 6 characters, include uppercase, lowercase, and a number.", {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
       return;
     }
 
-     createUser(email, password)
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
         updateUser({ displayName: name, photoURL: photo })
@@ -44,11 +39,6 @@ const Register = () => {
             toast.success("User registered successfully!", {
               position: "top-right",
               autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
               theme: "light",
               transition: Bounce,
             });
@@ -58,11 +48,6 @@ const Register = () => {
             toast.error(`Profile update failed: ${error.message}`, {
               position: "top-right",
               autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
               theme: "light",
               transition: Bounce,
             });
@@ -73,45 +58,27 @@ const Register = () => {
         toast.error(`Registration failed: ${error.message}`, {
           position: "top-right",
           autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "light",
           transition: Bounce,
         });
       });
-  }
-
+  };
 
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        console.log(result);
         navigate(`${location.state ? location.state : "/"}`);
         toast.success("Logged in with Google successfully!", {
           position: "top-right",
           autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "light",
           transition: Bounce,
         });
       })
       .catch((error) => {
-        console.log(error);
         toast.error(`Google login failed: ${error.message}`, {
           position: "top-right",
           autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "light",
           transition: Bounce,
         });
@@ -119,45 +86,57 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center rounded-2xl lg:min-h-[500px] bg-green-50 p-4">
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
+    <div className="flex justify-center items-center py-10 bg-green-50 dark:bg-gray-900 px-4 rounded-2xl">
+      <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-2xl shadow-lg p-8 w-full max-w-md">
+        <h2 className="text-3xl font-bold mb-6 text-center text-green-700 dark:text-green-300">
           Register
         </h2>
         <form onSubmit={handleRegister} className="space-y-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            name="name"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            required
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-          <input
-            type="text"
-            placeholder="Photo URL"
-            name="photo"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-          <div className="relative">
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              required
+              className="px-4 py-2 rounded border bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              className="px-4 py-2 rounded border bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1">Photo URL</label>
+            <input
+              type="text"
+              name="photo"
+              placeholder="Profile photo URL"
+              className="px-4 py-2 rounded border bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+            />
+          </div>
+
+          <div className="flex flex-col relative">
+            <label className="font-semibold mb-1">Password</label>
             <input
               type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              required
               name="password"
-              
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 pr-10"
+              placeholder="Create a password"
+              required
+              className="px-4 py-2 rounded border bg-white dark:bg-gray-700 dark:text-white pr-10 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-2/4 transform -translate-y-1/2 text-gray-600"
+              className="absolute right-3 top-[38px] text-gray-600 dark:text-gray-300"
               aria-label="Toggle password visibility"
             >
               {showPassword ? <FaEye /> : <IoMdEyeOff />}
@@ -166,7 +145,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition font-semibold"
           >
             Register
           </button>
@@ -175,7 +154,7 @@ const Register = () => {
             <button
               onClick={handleGoogleLogin}
               type="button"
-              className="w-full border border-gray-300 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-50"
+              className="w-full border border-gray-300 dark:border-gray-600 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-100 dark:hover:bg-gray-700 transition"
             >
               <FcGoogle className="text-xl" />
               Continue with Google
@@ -184,7 +163,7 @@ const Register = () => {
 
           <p className="text-sm text-center mt-4">
             Already have an account?{" "}
-            <Link to="/login" className="text-green-600 hover:underline">
+            <Link to="/login" className="text-green-600 hover:underline dark:text-green-400">
               Login
             </Link>
           </p>

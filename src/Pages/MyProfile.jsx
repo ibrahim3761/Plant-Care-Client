@@ -22,13 +22,9 @@ const MyProfile = () => {
           {user?.email || "Not signed in"}
         </p>
 
-        {user ? (
+        {user && (
           <p className="mt-6 text-green-600 font-medium">
             Thanks for growing with us 🌱
-          </p>
-        ) : (
-          <p className="mt-6 text-red-500 font-medium">
-            You are not logged in.
           </p>
         )}
       </div>
