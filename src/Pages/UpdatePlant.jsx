@@ -43,21 +43,21 @@ const UpdatePlant = () => {
   };
 
   return (
-    <div className="w-full px-4 py-10">
+    <div className="md:px-10 md:py-14 px-5 py-5">
       {/* Back Link */}
       <Link
         to="/"
-        className="text-lg font-semibold text-green-800 dark:text-green-300 hover:underline mb-6 inline-block"
+        className="text-lg font-semibold text-green-800 hover:underline mb-6 inline-block"
       >
         ← Back to Home
       </Link>
 
       {/* Form */}
-      <div className="bg-[#f9f9f6] dark:bg-gray-900 p-10 rounded-xl shadow-md text-gray-800 dark:text-gray-200">
-        <h2 className="text-3xl font-bold text-center text-green-800 dark:text-green-300 mb-4">
+      <div className="bg-[#f9f9f6] p-10 rounded-xl shadow-md text-gray-800">
+        <h2 className="text-3xl font-bold text-center text-green-800 mb-4">
           Update Plant Information
         </h2>
-        <p className="text-center text-sm text-gray-600 dark:text-gray-400 mb-8">
+        <p className="text-center text-sm text-gray-600 mb-8">
           Modify the details of your plant and update the database.
         </p>
 
@@ -73,7 +73,7 @@ const UpdatePlant = () => {
               name="name"
               defaultValue={name}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -85,7 +85,7 @@ const UpdatePlant = () => {
               name="image"
               defaultValue={image}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -97,7 +97,7 @@ const UpdatePlant = () => {
               name="category"
               defaultValue={category}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -109,7 +109,7 @@ const UpdatePlant = () => {
               name="careLevel"
               defaultValue={careLevel}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -121,7 +121,7 @@ const UpdatePlant = () => {
               name="wateringFrequency"
               defaultValue={wateringFrequency}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -133,7 +133,7 @@ const UpdatePlant = () => {
               name="healthStatus"
               defaultValue={healthStatus}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -145,7 +145,7 @@ const UpdatePlant = () => {
               name="lastWatered"
               defaultValue={lastWatered}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -157,7 +157,7 @@ const UpdatePlant = () => {
               name="nextWatering"
               defaultValue={nextWatering}
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 
@@ -169,7 +169,7 @@ const UpdatePlant = () => {
               defaultValue={description}
               rows="4"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white text-gray-800"
             />
           </div>
 

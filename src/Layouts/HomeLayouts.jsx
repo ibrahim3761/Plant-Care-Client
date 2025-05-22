@@ -9,7 +9,7 @@ const HomeLayouts = () => {
             <header>
                 <Header></Header>
             </header>
-            <main className='flex-grow md:px-10 md:py-14 px-5 py-5'>
+            <main className='flex-grow'>
                 <Outlet></Outlet>
             </main>
             <footer>

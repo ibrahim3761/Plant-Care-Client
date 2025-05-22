@@ -5,7 +5,7 @@ const PlantDetails = () => {
   const plant = useLoaderData();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <div className="max-w-4xl mx-auto md:px-10 md:py-14 px-5 py-5">
       <div className="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col md:flex-row">
         {/* Image */}
         <div className="md:w-1/2">
@@ -17,7 +17,7 @@ const PlantDetails = () => {
         </div>
 
         {/* Info */}
-        <div className="md:w-1/2 p-6 space-y-4">
+        <div className="md:w-1/2 p-5 space-y-4">
           <h2 className="text-3xl font-bold text-green-700">{plant.name}</h2>
           <p className="text-gray-600"><span className="font-semibold">Category:</span> {plant.category}</p>
           <p className="text-gray-600"><span className="font-semibold">Care Level:</span> {plant.careLevel}</p>

@@ -38,12 +38,12 @@ const AddPlant = () => {
   };
 
   return (
-    <div className="w-full px-4 py-10">
-      <div className="bg-[#f9f9f6] dark:bg-gray-900 p-10 rounded-xl shadow-md text-gray-800 dark:text-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-green-800 dark:text-green-300 mb-4">
+    <div className="md:px-10 md:py-14 px-5 py-5">
+      <div className="bg-[#f9f9f6] p-10 rounded-xl shadow-md text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-green-800 mb-4">
           Add a New Plant
         </h2>
-        <p className="text-center text-sm md:text-base text-gray-600 dark:text-gray-400 mb-8">
+        <p className="text-center text-sm md:text-base text-gray-600 mb-8">
           Fill out the form below to register a new plant in your collection.
         </p>
 
@@ -59,7 +59,7 @@ const AddPlant = () => {
               name="image"
               placeholder="Image URL"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             />
           </div>
 
@@ -71,7 +71,7 @@ const AddPlant = () => {
               name="name"
               placeholder="Plant Name"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             />
           </div>
 
@@ -81,7 +81,7 @@ const AddPlant = () => {
             <select
               name="category"
               required
-              className="p-2 rounded border text-gray-700 dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border text-gray-700"
             >
               <option value="">Select Category</option>
               <option value="succulent">Succulent</option>
@@ -97,7 +97,7 @@ const AddPlant = () => {
             <select
               name="careLevel"
               required
-              className="p-2 rounded border text-gray-700 dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border text-gray-700"
             >
               <option value="">Select Care Level</option>
               <option value="easy">Easy</option>
@@ -114,7 +114,7 @@ const AddPlant = () => {
               name="wateringFrequency"
               placeholder="e.g., every 3 days"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             />
           </div>
 
@@ -126,7 +126,7 @@ const AddPlant = () => {
               name="healthStatus"
               placeholder="Health Status"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             />
           </div>
 
@@ -137,7 +137,7 @@ const AddPlant = () => {
               type="date"
               name="lastWatered"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             />
           </div>
 
@@ -148,7 +148,7 @@ const AddPlant = () => {
               type="date"
               name="nextWatering"
               required
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             />
           </div>
 
@@ -160,7 +160,7 @@ const AddPlant = () => {
               placeholder="Write a short description..."
               required
               rows="3"
-              className="p-2 rounded border bg-white dark:bg-gray-800 dark:text-white"
+              className="p-2 rounded border bg-white"
             ></textarea>
           </div>
 
@@ -172,7 +172,7 @@ const AddPlant = () => {
               name="userEmail"
               value={user?.email || ""}
               readOnly
-              className="p-2 rounded border bg-gray-100 dark:bg-gray-700 dark:text-white"
+              className="p-2 rounded border bg-gray-100"
             />
           </div>
 
@@ -184,7 +184,7 @@ const AddPlant = () => {
               name="userName"
               value={user?.displayName || ""}
               readOnly
-              className="p-2 rounded border bg-gray-100 dark:bg-gray-700 dark:text-white"
+              className="p-2 rounded border bg-gray-100"
             />
           </div>
 
