@@ -26,7 +26,7 @@ const AllPlants = () => {
           <tbody>
             {plants?.map((plant, index) => (
               <tr key={plant._id || index} className="border-t border-gray-200 dark:border-gray-700">
-                <td className="px-6 py-4 text-gray-800 dark:text-gray-100">{index + 1}</td>
+                <td className="px-6 py-4 text-black">{index + 1}</td>
                 <td className="px-6 py-4">
                   <img
                     src={plant.image}

@@ -31,7 +31,7 @@ const Home = () => {
         {/* 🌗 Theme Toggle */}
       <label className="swap swap-rotate">
         {/* this hidden checkbox controls the state */}
-        <input type="checkbox" onChange={handleToggleTheme}/>
+        <input type="checkbox" onChange={handleToggleTheme} checked={theme === "dark"} />
 
         {/* sun icon */}
         <svg
