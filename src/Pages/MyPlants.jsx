@@ -49,7 +49,7 @@ const MyPlants = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10">
       <Helmet>
         <title>My Plant || Plant Care</title>
       </Helmet>
@@ -116,7 +116,7 @@ const MyPlants = () => {
                   <td className="px-6 py-4 text-gray-800">
                     {plant.healthStatus || "Unknown"}
                   </td>
-                  <td className="px-6 py-4 space-x-2">
+                  <td className=" px-6 py-4 space-x-2">
                     <Link
                       to={`/update-plant/${plant._id}`}
                       className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"

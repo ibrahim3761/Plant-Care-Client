@@ -1,12 +1,38 @@
-# React + Vite
+# 🌿 Plant Care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Website:** [https://plant-care-app-d7978.web.app/](https://plant-care-app-d7978.web.app/)
 
-Currently, two official plugins are available:
+Plant Care Tracker is a full-stack, mobile-responsive web application designed to help users monitor and manage care tasks for their indoor and outdoor plants. Whether you’re nurturing succulents, ferns, or tropical beauties, this app ensures your green companions get the care they deserve.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **🔐 Secure User Authentication**  
+  Firebase Authentication allows users to sign up, log in, and access their personal dashboard securely.
+
+- **🪴 Add, Update, Delete Plant Records**  
+  Authenticated users can fully manage their own plant collection with CRUD functionality (Create, Read, Update, Delete).
+
+- **🌍 View All User Plants**  
+  Users can view not only their own plants but also those added by other users — promoting a shared plant care community.
+
+- **🌓 Light/Dark Theme Toggle**  
+  A user-friendly toggle on the homepage lets users switch between light and dark themes for a comfortable browsing experience.
+
+- **💧 Task Logging & Visual Feedback**  
+  Log watering and fertilizing tasks, with styled success/error messages that make the app feel responsive and engaging.
+
+- **📱 Fully Responsive Design**  
+  Built with Tailwind CSS and DaisyUI for a clean, plant-themed interface that looks great on mobile, tablet, and desktop.
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React, Tailwind CSS, DaisyUI  
+- **Backend:** Node.js, Express.js (hosted on **Vercel**)  
+- **Database:** MongoDB 
+- **Authentication & Hosting:** Firebase Authentication & Firebase Hosting  
+
+---
