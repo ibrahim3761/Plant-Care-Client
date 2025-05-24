@@ -1,6 +1,6 @@
 # 🌿 Plant Care
 
-**Live Website:** [https://plant-care-app-d7978.web.app/](https://plant-care-app-d7978.web.app/)
+**Live Website:** [Plant Care](https://plant-care-app-d7978.web.app/)
 
 Plant Care Tracker is a full-stack, mobile-responsive web application designed to help users monitor and manage care tasks for their indoor and outdoor plants. Whether you’re nurturing succulents, ferns, or tropical beauties, this app ensures your green companions get the care they deserve.
 
