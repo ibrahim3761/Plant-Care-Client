@@ -1,10 +1,14 @@
-import React, { use } from 'react';
-import { AuthContext } from '../Provider/AuthProvider';
+import React, { use } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = () => {
-    const {user} = use(AuthContext)
-      return (
+  const { user } = use(AuthContext);
+  return (
     <div className="flex justify-center items-center h-[400px] rounded-2xl bg-green-50 px-4">
+      <Helmet>
+        <title>My Profile || Plant Care</title>
+      </Helmet>
       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md text-center">
         <h2 className="text-2xl font-bold text-green-700 mb-6">My Profile</h2>
 
@@ -18,9 +22,7 @@ const MyProfile = () => {
           {user?.displayName || "Guest User"}
         </h3>
 
-        <p className="text-gray-600 mt-2">
-          {user?.email || "Not signed in"}
-        </p>
+        <p className="text-gray-600 mt-2">{user?.email || "Not signed in"}</p>
 
         {user && (
           <p className="mt-6 text-green-600 font-medium">

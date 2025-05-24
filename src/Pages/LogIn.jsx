@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Bounce, toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { googleLogin, logIn } = use(AuthContext);
@@ -58,8 +59,13 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10 rounded-2xl bg-green-50 dark:bg-gray-900 px-4">
-      <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-2xl shadow-lg p-8 w-full max-w-md">
+    <div className="flex justify-center items-center py-10 rounded-2xl bg-green-50 p-4 m-2 md:m-4">
+      <Helmet>
+              <title>
+                Log In || Plant Care
+              </title>
+            </Helmet>
+      <div className="bg-white text-gray-900 rounded-2xl shadow-lg p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold mb-6 text-center text-green-700 dark:text-green-300">
           Login
         </h2>
@@ -71,7 +77,7 @@ const Login = () => {
               name="email"
               placeholder="Enter your email"
               required
-              className="px-4 py-2 rounded border bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="px-4 py-2 rounded border bg-white focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>
 
@@ -82,13 +88,13 @@ const Login = () => {
               name="password"
               placeholder="Enter your password"
               required
-              className="px-4 py-2 rounded border bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="px-4 py-2 rounded border bg-white focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition font-semibold"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition font-semibold cursor-pointer"
           >
             Login
           </button>
@@ -97,7 +103,7 @@ const Login = () => {
             <button
               type="button"
               onClick={handleGoogleLogin}
-              className="w-full border border-gray-300 dark:border-gray-600 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-100 dark:hover:bg-gray-700 transition"
+              className="w-full border border-gray-300 dark:border-gray-600 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-100 transition cursor-pointer"
             >
               <FcGoogle className="text-xl" />
               Continue with Google
@@ -106,7 +112,7 @@ const Login = () => {
 
           <p className="text-sm text-center mt-4">
             Don't have an account?{" "}
-            <Link to="/register" className="text-green-600 hover:underline dark:text-green-400">
+            <Link to="/register" className="text-green-600 hover:underline cursor-pointer">
               Register
             </Link>
           </p>

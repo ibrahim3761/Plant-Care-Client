@@ -7,10 +7,12 @@ import AuthProvider from "./Provider/AuthProvider.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { HelmetProvider } from "react-helmet-async";
 
 
 createRoot(document.getElementById("root")).render(
-  <AuthProvider>
+  <HelmetProvider>
+    <AuthProvider>
     <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -26,4 +28,5 @@ createRoot(document.getElementById("root")).render(
       />
     <RouterProvider router={router}></RouterProvider>
   </AuthProvider>
+  </HelmetProvider>
 );

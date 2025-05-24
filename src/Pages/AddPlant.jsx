@@ -2,6 +2,7 @@ import React from "react";
 import { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Bounce, toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AddPlant = () => {
   const { user } = use(AuthContext);
@@ -39,6 +40,11 @@ const AddPlant = () => {
 
   return (
     <div className="md:px-10 md:py-14 px-5 py-5">
+      <Helmet>
+        <title>
+          Add Plant || Plant Care
+        </title>
+      </Helmet>
       <div className="bg-[#f9f9f6] p-10 rounded-xl shadow-md text-gray-800">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-green-800 mb-4">
           Add a New Plant

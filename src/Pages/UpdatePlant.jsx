@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -44,6 +45,9 @@ const UpdatePlant = () => {
 
   return (
     <div className="md:px-10 md:py-14 px-5 py-5">
+      <Helmet>
+        <title>Update Plant || Plant Care</title>
+      </Helmet>
       {/* Back Link */}
       <Link
         to="/"

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../Componenets/Banner";
 import { Link } from "react-router";
-import Loader from "./Loader";
+import Loader from "../Componenets/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [recentPlants, setRecentPlants] = useState([]);
@@ -35,7 +36,10 @@ const Home = () => {
   };
 
   return (
-    <div className="md:px-10 md:py-14 px-5 py-5" data-theme={theme}>
+    <div className="md:px-10 md:py-2 px-5 py-5" data-theme={theme}>
+      <Helmet>
+        <title>Home || Plant Care</title>
+      </Helmet>
       <div className="pb-5">
         {/* 🌗 Theme Toggle */}
         <label className="swap swap-rotate">

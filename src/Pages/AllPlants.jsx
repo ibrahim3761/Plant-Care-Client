@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData, Link } from 'react-router';
 
 const AllPlants = () => {
@@ -6,6 +7,11 @@ const AllPlants = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
+      <Helmet>
+              <title>
+                All Plant || Plant Care
+              </title>
+            </Helmet>
       <h2 className="text-3xl font-bold text-center text-green-500 mb-6">
         All Plants
       </h2>

@@ -9,7 +9,7 @@ import Register from "../Pages/Register";
 import MyProfile from "../Pages/MyProfile";
 import PlantDetails from "../Pages/PlantDetails";
 import UpdatePlant from "../Pages/UpdatePlant";
-import Loader from "../Pages/Loader";
+import Loader from "../Componenets/Loader";
 import PrivateRoute from "../Provider/PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
 import CopyrightPage from "../Pages/CopyrightPage";
