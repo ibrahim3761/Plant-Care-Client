@@ -62,8 +62,8 @@ const Banner = () => {
       extraInfo:
         "South-facing windows provide the most light, while north-facing windows offer gentle, indirect light perfect for shade-loving plants.",
       bulletPoints: [
-        "East-facing windows provide morning sun, ideal for most plants",
-        "West-facing windows offer afternoon sun, which can be intense",
+        "East-facing windows provide morning sun, ideal for plants",
+        "West-facing windows offer afternoon sun, which can be bad",
         "Use sheer curtains to filter harsh direct sunlight",
       ],
       factoid:
@@ -85,7 +85,7 @@ const Banner = () => {
       <Slider {...settings} className="plant-care-slider">
         {slides.map((slide, index) => (
           <div key={index}>
-            <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 py-1">
+            <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 py-2">
               {/* Text Content */}
               <div className="lg:w-1/2 text-center lg:text-left space-y-4">
                 <span className="inline-block bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">

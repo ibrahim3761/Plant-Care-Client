@@ -36,7 +36,7 @@ const Home = () => {
   };
 
   return (
-    <div className="md:px-10 md:py-2 px-5 py-5" data-theme={theme}>
+    <div className="md:px-10 md:py-2 px-5 py-5 mt-16" data-theme={theme}>
       <Helmet>
         <title>Home || Plant Care</title>
       </Helmet>
@@ -73,7 +73,7 @@ const Home = () => {
       <div className="space-y-10">
         <Banner />
 
-        <section className="max-w-6xl mx-auto px-4 text-center mb-16">
+        <section className=" px-4 md:px-20 text-center mb-16 bg-green-50 py-10 rounded-2xl shadow-lg">
           <h2 className="text-4xl font-extrabold text-green-700 mb-3">
             🌿 Discover New Plants
           </h2>
@@ -171,7 +171,7 @@ const Home = () => {
         </section>
 
         {/* 🌱 Plant Parent Reflections */}
-        <section className="bg-green-50 py-16 px-4 rounded-2xl">
+        <section className="bg-green-50 py-16 px-4 rounded-2xl shadow-lg">
           <div className="max-w-4xl mx-auto text-center space-y-10">
             <h2 className="text-4xl font-bold text-green-700">
               🌱 Plant Parent Reflections
@@ -201,7 +201,7 @@ const Home = () => {
         </section>
 
         {/* 🧪 Quick Plant Troubleshooting Guide */}
-        <section className="py-16 px-4 bg-white border-t border-green-100 rounded-2xl">
+        <section className="py-16 px-4 bg-green-50 border-t border-green-100 rounded-2xl shadow-lg">
           <div className="max-w-5xl mx-auto text-center space-y-8">
             <h2 className="text-4xl font-bold text-green-700">
               🧪 Quick Plant Troubleshooting
@@ -269,7 +269,7 @@ const Home = () => {
           </div>
         </section>
         {/* 🌼 Seasonal Planting Guide */}
-        <section className="bg-gradient-to-br from-green-100 to-white py-16 px-4 rounded-2xl my-10">
+        <section className="bg-green-50 py-16 px-4 rounded-2xl my-10 shadow-lg">
           <div className="max-w-5xl mx-auto text-center space-y-8">
             <h2 className="text-4xl font-bold text-green-800">
               🌼 Seasonal Planting Guide
