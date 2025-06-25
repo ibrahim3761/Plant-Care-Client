@@ -17,6 +17,7 @@ import TermsPage from "../Pages/TermsPage";
 import PrivacyPage from "../Pages/PrivacyPage";
 import AboutUs from "../Pages/AboutUs";
 import ContactUs from "../Pages/ContactUs";
+import Dashboard from "../Pages/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -100,6 +101,14 @@ export const router = createBrowserRouter([
       {
         path:"privacy",
         Component: PrivacyPage 
+      },
+      {
+        path:'dashboard',
+        element:(
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        )
       }
     ],
   },
