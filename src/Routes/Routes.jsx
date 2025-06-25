@@ -15,6 +15,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import CopyrightPage from "../Pages/CopyrightPage";
 import TermsPage from "../Pages/TermsPage";
 import PrivacyPage from "../Pages/PrivacyPage";
+import AboutUs from "../Pages/AboutUs";
+import ContactUs from "../Pages/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +56,12 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loader></Loader>
       },
       {
-        path:'about-us'
+        path:'about-us',
+        Component: AboutUs
+      },
+      {
+        path:'contact-us',
+        Component: ContactUs
       },
       {
         path: "logIn",
