@@ -6,7 +6,7 @@ const PlantDetails = () => {
   const plant = useLoaderData();
 
   return (
-    <div className="max-w-4xl mx-auto md:px-10 md:py-14 px-5 py-5">
+    <div className="max-w-4xl mx-auto md:px-10 md:py-14 px-5 py-5 mt-16">
       <Helmet>
         <title>Plant Details|| Plant Care</title>
       </Helmet>

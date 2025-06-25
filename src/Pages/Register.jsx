@@ -90,7 +90,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10 bg-green-50 px-4 rounded-2xl p-4 m-2 md:m-4">
+    <div className="flex justify-center items-center py-8 bg-green-50 px-4 rounded-2xl p-4 m-2 md:m-4 md:mt-20 mt-20">
       <Helmet>
         <title>Register || Plant Care</title>
       </Helmet>

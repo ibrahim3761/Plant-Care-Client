@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 const MyProfile = () => {
   const { user } = use(AuthContext);
   return (
-    <div className="flex justify-center items-center h-[400px] rounded-2xl bg-green-50 px-4">
+    <div className="flex justify-center items-center h-[400px] rounded-2xl bg-green-50 px-4 mt-18">
       <Helmet>
         <title>My Profile || Plant Care</title>
       </Helmet>

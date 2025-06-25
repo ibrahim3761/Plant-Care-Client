@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10 rounded-2xl bg-green-50 p-4 m-2 md:m-4">
+    <div className="flex justify-center items-center py-10 rounded-2xl bg-green-50 p-4 m-2 mt-20 md:m-4 md:mt-20">
       <Helmet>
               <title>
                 Log In || Plant Care

@@ -6,7 +6,7 @@ const CopyrightPage = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-[#f9f9f6] text-gray-800 px-5 py-10">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[#f9f9f6] text-gray-800 px-5 py-10 ">
       <Helmet>
               <title>
                 Copyright || Plant Care

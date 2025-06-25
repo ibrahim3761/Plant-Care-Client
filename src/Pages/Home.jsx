@@ -36,7 +36,7 @@ const Home = () => {
   };
 
   return (
-    <div className="md:px-10 md:py-2 px-5 py-5 mt-16" data-theme={theme}>
+    <div className="md:px-10 md:py-2 px-5 py-5 mt-16 md:mt-20" data-theme={theme}>
       <Helmet>
         <title>Home || Plant Care</title>
       </Helmet>

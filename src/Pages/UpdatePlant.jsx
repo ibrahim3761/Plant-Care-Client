@@ -44,7 +44,7 @@ const UpdatePlant = () => {
   };
 
   return (
-    <div className="md:px-10 md:py-14 px-5 py-5">
+    <div className="md:px-10 md:py-14 px-5 py-5 mt-12 md:mt-10">
       <Helmet>
         <title>Update Plant || Plant Care</title>
       </Helmet>
