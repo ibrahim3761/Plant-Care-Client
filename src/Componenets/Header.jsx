@@ -39,28 +39,68 @@ const Navbar = () => {
           All Plants
         </NavLink>
       </li>
+      {user && (
+        <>
+          <li className="lg:mr-4">
+            <NavLink
+              to="/add-plant"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
+                  : "text-gray-700 hover:text-green-500 pb-1"
+              }
+            >
+              Add Plant
+            </NavLink>
+          </li>
+          <li className="lg:mr-4">
+            <NavLink
+              to="/my-plants"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
+                  : "text-gray-700 hover:text-green-500 pb-1"
+              }
+            >
+              My Plants
+            </NavLink>
+          </li>
+          <li className="lg:mr-4">
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
+                  : "text-gray-700 hover:text-green-500 pb-1"
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
       <li className="lg:mr-4">
         <NavLink
-          to="/add-plant"
+          to="/about-us"
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
               : "text-gray-700 hover:text-green-500 pb-1"
           }
         >
-          Add Plant
+          About Us
         </NavLink>
       </li>
       <li className="lg:mr-4">
         <NavLink
-          to="/my-plants"
+          to="/contact-us"
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-green-500 text-green-600 font-semibold pb-1"
               : "text-gray-700 hover:text-green-500 pb-1"
           }
         >
-          My Plants
+          Contact Us
         </NavLink>
       </li>
     </>
@@ -78,7 +118,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
           </div>
           <ul
@@ -121,7 +166,7 @@ const Navbar = () => {
 
       <div className="navbar-end md:space-x-4">
         {/* Profile + Tooltip */}
-        <Link to="/my-profile">
+        <Link to={user ? "/my-profile" : "#"}>
           <div className="relative mr-2">
             <img
               src={user?.photoURL || userIcon}
@@ -149,14 +194,21 @@ const Navbar = () => {
             />
           </div>
         </Link>
+
         {/* Auth buttons (for large screens) */}
         <div className="hidden sm:flex space-x-2 pr-4">
           {!user ? (
             <>
-              <Link to="/logIn" className="btn bg-green-500 text-white cursor-pointer">
+              <Link
+                to="/logIn"
+                className="btn bg-green-500 text-white cursor-pointer"
+              >
                 Log In
               </Link>
-              <Link to="/register" className="btn bg-green-500 text-white cursor-pointer">
+              <Link
+                to="/register"
+                className="btn bg-green-500 text-white cursor-pointer"
+              >
                 Register
               </Link>
             </>

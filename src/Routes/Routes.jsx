@@ -54,6 +54,9 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loader></Loader>
       },
       {
+        path:'about-us'
+      },
+      {
         path: "logIn",
         Component: LogIn,
       },

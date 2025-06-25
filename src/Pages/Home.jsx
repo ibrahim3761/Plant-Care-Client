@@ -70,7 +70,7 @@ const Home = () => {
         </label>
       </div>
 
-      <div className="space-y-24">
+      <div className="space-y-10">
         <Banner />
 
         <section className="max-w-6xl mx-auto px-4 text-center mb-16">

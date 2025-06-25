@@ -72,7 +72,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-green-50 to-green-100 py-10 px-4 rounded-xl shadow-md overflow-hidden ">
+    <div className="bg-gradient-to-r from-green-50 to-green-100 py-4 px-4 rounded-xl shadow-md overflow-hidden ">
       <div className="max-w-6xl mx-auto mb-6">
         <h1 className="text-4xl font-bold text-green-800 text-center mb-2">
           Essential Plant Care Tips
@@ -85,7 +85,7 @@ const Banner = () => {
       <Slider {...settings} className="plant-care-slider">
         {slides.map((slide, index) => (
           <div key={index}>
-            <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 py-6">
+            <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-8 px-4 py-1">
               {/* Text Content */}
               <div className="lg:w-1/2 text-center lg:text-left space-y-4">
                 <span className="inline-block bg-green-600 text-white text-sm font-medium px-3 py-1 rounded-full">
@@ -112,15 +112,6 @@ const Banner = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-3 bg-green-50 p-3 rounded-md border-l-4 border-green-500">
-                    <p className="text-sm italic text-gray-700">{slide.factoid}</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <button className="bg-white hover:bg-gray-100 text-green-700 border border-green-600 font-medium px-6 py-2 rounded-lg transition-colors">
-                    Save Tip
-                  </button>
                 </div>
               </div>
 
@@ -144,7 +135,7 @@ const Banner = () => {
         ))}
       </Slider>
 
-      <div className="mt-6 flex justify-center">
+       <div className=" flex justify-center">
         <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-green-100">
           <p className="text-center text-gray-600">
             <span className="font-semibold text-green-700">Pro Tip:</span> Join our weekly newsletter for
@@ -154,7 +145,7 @@ const Banner = () => {
             </a>
           </p>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
