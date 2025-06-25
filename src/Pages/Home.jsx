@@ -268,6 +268,57 @@ const Home = () => {
             </div>
           </div>
         </section>
+        {/* 🌼 Seasonal Planting Guide */}
+        <section className="bg-gradient-to-br from-green-100 to-white py-16 px-4 rounded-2xl my-10">
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+            <h2 className="text-4xl font-bold text-green-800">
+              🌼 Seasonal Planting Guide
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Get the most out of your garden by planting the right greens in
+              the right season.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+              <div className="bg-white p-5 rounded-lg shadow-md border-l-4 border-yellow-500">
+                <h3 className="text-xl font-semibold text-green-700 mb-1">
+                  🌸 Spring
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  Perfect time to plant herbs, leafy greens, and flowering
+                  bulbs.
+                </p>
+              </div>
+              <div className="bg-white p-5 rounded-lg shadow-md border-l-4 border-orange-500">
+                <h3 className="text-xl font-semibold text-green-700 mb-1">
+                  ☀️ Summer
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  Ideal for tomatoes, cucumbers, peppers, and sun-loving
+                  succulents.
+                </p>
+              </div>
+              <div className="bg-white p-5 rounded-lg shadow-md border-l-4 border-red-500">
+                <h3 className="text-xl font-semibold text-green-700 mb-1">
+                  🍂 Autumn
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  Plant root vegetables like carrots, beets, and cool-season
+                  flowers.
+                </p>
+              </div>
+              <div className="bg-white p-5 rounded-lg shadow-md border-l-4 border-blue-500">
+                <h3 className="text-xl font-semibold text-green-700 mb-1">
+                  ❄️ Winter
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  Focus on indoor plants and hardy evergreens that thrive in
+                  cooler temps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

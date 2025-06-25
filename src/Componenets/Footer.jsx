@@ -1,25 +1,121 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import logo from "../../src/assets/360_F_258623607_a31m59gQNxn3lhw7OuuAlJwmqeeEQ90q.jpg";
 
 const Footer = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <footer className="bg-green-800 text-green-100 py-8 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-center md:text-left">
-          <h2 className="text-xl font-bold mb-1">Plant Care</h2>
-          <Link to='/copyright'>
-            <p className="text-sm underline">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        {/* Logo + Copyright */}
+        <div className="text-center md:text-left space-y-3">
+          <Link
+            to="/"
+            className="flex items-center justify-center md:justify-start gap-2"
+          >
+            <img src={logo} alt="Logo" className="h-10 w-10 rounded-full" />
+            <span className="text-xl font-bold">Plant Care</span>
+          </Link>
+          <Link to="/copyright" className="text-sm underline block">
             &copy; {new Date().getFullYear()} PlantCare. All rights reserved.
-          </p>
           </Link>
         </div>
 
-        <div className="text-center md:text-left">
-          <p className="font-semibold mb-1">Contact Us</p>
+        <div className="text-center md:text-left space-y-2">
+          <p className="font-semibold">Quick Links</p>
+          <ul className="space-y-1 text-sm">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-white font-semibold" : "hover:text-green-300"
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/allPlants"
+                className={({ isActive }) =>
+                  isActive ? "text-white font-semibold" : "hover:text-green-300"
+                }
+              >
+                All Plants
+              </NavLink>
+            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    to="/add-plant"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white font-semibold"
+                        : "hover:text-green-300"
+                    }
+                  >
+                    Add Plant
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/my-plants"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white font-semibold"
+                        : "hover:text-green-300"
+                    }
+                  >
+                    My Plants
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white font-semibold"
+                        : "hover:text-green-300"
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              </>
+            )}
+            <li>
+              <NavLink
+                to="/about-us"
+                className={({ isActive }) =>
+                  isActive ? "text-white font-semibold" : "hover:text-green-300"
+                }
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact-us"
+                className={({ isActive }) =>
+                  isActive ? "text-white font-semibold" : "hover:text-green-300"
+                }
+              >
+                Contact Us
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact & Social */}
+        <div className="text-center md:text-left space-y-2">
+          <p className="font-semibold">Contact Us</p>
           <p className="text-sm">
             Email:{" "}
             <a
-              href="mailto:contact@plantcarehub.com"
+              href="mailto:contact@plantcare.com"
               className="underline hover:text-green-300"
             >
               contact@plantcare.com
@@ -28,63 +124,40 @@ const Footer = () => {
           <p className="text-sm">
             Phone:{" "}
             <a
-              href="tel:+1234567890"
+              href="tel:+8801887383971"
               className="underline hover:text-green-300"
             >
               01887383971
             </a>
           </p>
-        </div>
 
-        <div className="flex space-x-6 text-green-200">
-          <a
-            href="https://www.facebook.com/Ibrahim376146ab/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="hover:text-green-400"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              className="w-6 h-6"
+          {/* Social Icons */}
+          <div className="flex justify-center md:justify-start space-x-4 mt-2">
+            <a
+              href="https://www.facebook.com/Ibrahim376146ab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-300"
             >
-              <path d="M22 12a10 10 0 10-11.7 9.8v-6.9h-3v-2.9h3v-2.2c0-3 1.8-4.6 4.4-4.6 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 1-2 2v2.3h3.4l-.5 2.9h-2.9v6.9A10 10 0 0022 12z" />
-            </svg>
-          </a>
-          <a
-            href="https://x.com/ibrahim376146"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="hover:text-green-400"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              className="w-6 h-6"
+              <i className="fab fa-facebook-f text-lg"></i>
+            </a>
+            <a
+              href="https://x.com/ibrahim376146"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-300"
             >
-              <path d="M23 3a10.9 10.9 0 01-3.14.86 4.48 4.48 0 001.96-2.48 9.14 9.14 0 01-2.88 1.1A4.52 4.52 0 0016.5 2a4.48 4.48 0 00-4.45 5.52 12.94 12.94 0 01-9.4-4.7 4.48 4.48 0 001.38 6A4.48 4.48 0 012 8.7v.06a4.48 4.48 0 003.58 4.4 4.52 4.52 0 01-2.04.08 4.49 4.49 0 004.19 3.12A9.01 9.01 0 012 19.54 12.86 12.86 0 008.29 21c7.55 0 11.68-6.3 11.68-11.76 0-.18 0-.35-.01-.53A8.36 8.36 0 0023 3z" />
-            </svg>
-          </a>
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-            className="hover:text-green-400"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              className="w-6 h-6"
+              <i className="fab fa-twitter text-lg"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-300"
             >
-              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-            </svg>
-          </a>
+              <i className="fab fa-youtube text-lg"></i>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
