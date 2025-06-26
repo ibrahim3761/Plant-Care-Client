@@ -18,6 +18,14 @@ import PrivacyPage from "../Pages/PrivacyPage";
 import AboutUs from "../Pages/AboutUs";
 import ContactUs from "../Pages/ContactUs";
 import Dashboard from "../Pages/Dashboard";
+import DashboardLayouts from "../Layouts/DashboardLayouts";
+import DashMyPlants from "../Pages/DashMyPlants";
+import DashUpdatePlant from "../Pages/DashUpdatePlant";
+import DashPlantDetails from "../Pages/DashPlantDaetails";
+import DashAllPlants from "../Pages/DashAllPlants";
+import DashAboutUs from "../Pages/DashAboutUs";
+import DashContactUs from "../Pages/DashContactUs";
+import DashAddPlant from "../Pages/DashAddPlant";
 
 export const router = createBrowserRouter([
   {
@@ -102,14 +110,58 @@ export const router = createBrowserRouter([
         path:"privacy",
         Component: PrivacyPage 
       },
-      {
-        path:'dashboard',
-        element:(
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-        )
-      }
+      
     ],
   },
+  {
+    path:'/dashboard',
+    element: <PrivateRoute><DashboardLayouts></DashboardLayouts></PrivateRoute>,
+    children:[
+      {
+        index: true,
+        Component:Dashboard
+      },
+      {
+        path:'myplants',
+        Component:DashMyPlants
+      },
+      {
+        path:'about-us',
+        Component:DashAboutUs
+      },
+      {
+        path:'contact-us',
+        Component:DashContactUs
+      },
+      {
+        path: "add-plant",
+        element: (<PrivateRoute>
+          <DashAddPlant></DashAddPlant>
+        </PrivateRoute>),
+        hydrateFallbackElement: <Loader></Loader>
+      },
+      {
+        path: "update-plant/:id",
+        Component: DashUpdatePlant,
+        loader:({params})=> fetch(`https://plant-care-tracker-server-ten.vercel.app/plants/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>
+      },
+      {
+        path: "plantDetails/:id",
+        element: (
+          <PrivateRoute>
+            <DashPlantDetails></DashPlantDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://plant-care-tracker-server-ten.vercel.app/plants/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>
+      },
+      {
+        path: "allPlants",
+        Component: DashAllPlants,
+        loader: () => fetch("https://plant-care-tracker-server-ten.vercel.app/plants?sortBy=nextWatering"),
+        hydrateFallbackElement: <Loader></Loader>
+      },
+    ]
+  }
 ]);
